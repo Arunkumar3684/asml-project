@@ -63,8 +63,7 @@ environment {
             git add asml-k8s/deployment.yaml
             git commit -m "Deploy image $IMAGE_TAG" || true
 
-            git push https://$GIT_USER:$GIT_TOKEN@github.com/$GIT_USER/asml-devops-project.git HEAD:main
-            '''
+            'git push https://$GIT_USER:$GIT_TOKEN@github.com/$GIT_USER/asml-project.git HEAD:main''
         }
     }
 }}
