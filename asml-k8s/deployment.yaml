@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: asml-app
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: asml-app
+
+  template:
+    metadata:
+      labels:
+        app: asml-app
+
+    spec:
+      containers:
+        - name: asml-app
+          image: 089089715726.dkr.ecr.us-east-1.amazonaws.com/asml-app:1.0.0
+
+          ports:
+            - containerPort: 8082
