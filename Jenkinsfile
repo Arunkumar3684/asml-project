@@ -46,5 +46,19 @@ environment {
                 '''
             }
         }
+stage('Update Kubernetes Manifest') {
+    steps {
+        sh '''
+        sed -i "s|image: .*asml-app:.*|image: $ECR_REPO:$IMAGE_TAG|" asml-k8s/deployment.yaml
+
+        git config user.email "jenkins@asml.local"
+        git config user.name "Jenkins"
+
+        git add asml-k8s/deployment.yaml
+        git commit -m "Deploy image $IMAGE_TAG" || true
+        git push origin HEAD:main
+        '''
+    }
+}
     }
 }
