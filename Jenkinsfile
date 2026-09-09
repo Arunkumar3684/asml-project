@@ -1,12 +1,13 @@
 pipeline {
     agent any
 
-    environment {
-        AWS_REGION = 'us-east-1'
-        ECR_REPO   = '089089715726.dkr.ecr.us-east-1.amazonaws.com/asml-app'
-        IMAGE_TAG  = "${BUILD_NUMBER}"
-    }
-
+environment {
+    JAVA_HOME  = '/usr/lib/jvm/java-21-amazon-corretto.x86_64'
+    PATH       = "${JAVA_HOME}/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin"
+    AWS_REGION = 'us-east-1'
+    ECR_REPO   = '089089715726.dkr.ecr.us-east-1.amazonaws.com/asml-app'
+    IMAGE_TAG  = "${BUILD_NUMBER}"
+}
     stages {
 
         stage('Checkout') {
