@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: asml-app
-          image: 089089715726.dkr.ecr.us-east-1.amazonaws.com/asml-app:1.0.0
+          image: 089089715726.dkr.ecr.us-east-1.amazonaws.com/asml-app:7
 
           ports:
             - containerPort: 8082
